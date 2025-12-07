@@ -1,0 +1,1497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Reading Paul Today – A Guide to His Teachings</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #0f172a;
+      --bg-light: #111827;
+      --card-bg: #020617;
+      --accent: #f97316;
+      --accent-soft: rgba(249, 115, 22, 0.12);
+      --accent-border: rgba(249, 115, 22, 0.25);
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --border: #1f2937;
+      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.88);
+      --radius-lg: 16px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #1f2933 0, #020617 38%, #000 100%);
+      color: var(--text);
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .page {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 1.25rem 1.25rem 3rem;
+    }
+
+    header.hero {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      padding-bottom: 0.75rem;
+      backdrop-filter: blur(18px);
+      background: radial-gradient(circle at top left, rgba(249, 115, 22, 0.25), rgba(15, 23, 42, 0.96));
+      border-bottom: 1px solid rgba(148, 163, 184, 0.14);
+    }
+
+    .hero-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0.85rem 1.25rem 1.25rem;
+      display: grid;
+      grid-template-columns: minmax(0, 2.5fr) minmax(0, 1.5fr);
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .hero-title {
+      font-size: clamp(1.7rem, 3vw, 2rem);
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .hero-badge {
+      font-size: 0.68rem;
+      padding: 0.2rem 0.55rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .hero-subtitle {
+      margin-top: 0.5rem;
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.9rem;
+    }
+
+    .btn {
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      font-size: 0.85rem;
+      padding: 0.5rem 0.95rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      cursor: pointer;
+      background: transparent;
+      color: var(--text);
+      text-decoration: none;
+      transition: background 150ms ease, border-color 150ms ease, transform 120ms ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #f97316, #fb923c);
+      border-color: rgba(248, 250, 252, 0.2);
+      color: #0f172a;
+      font-weight: 600;
+      box-shadow: 0 12px 30px rgba(248, 113, 22, 0.45);
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      background: rgba(15, 23, 42, 0.8);
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(135deg, #fb923c, #f97316);
+    }
+
+    .hero-meta {
+      justify-self: end;
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      align-items: flex-end;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .hero-meta-card {
+      background: rgba(15, 23, 42, 0.9);
+      border-radius: 14px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      padding: 0.75rem 0.85rem;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.65);
+      max-width: 260px;
+    }
+
+    .hero-meta-card strong {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #e5e7eb;
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+
+    .hero-meta-card p {
+      margin: 0.15rem 0;
+      line-height: 1.4;
+    }
+
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.35rem;
+    }
+
+    .chip {
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      padding: 0.18rem 0.55rem;
+      font-size: 0.7rem;
+      color: var(--muted);
+      background: rgba(15, 23, 42, 0.85);
+    }
+
+    .topic-nav-wrapper {
+      margin: 1.5rem auto 1.5rem;
+      padding: 0.85rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      background: radial-gradient(circle at top, rgba(15, 23, 42, 0.94), rgba(15, 23, 42, 0.85));
+      box-shadow: 0 18px 50px rgba(15, 23, 42, 0.9);
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .topic-nav {
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 0.4rem;
+      min-width: max-content;
+      align-items: center;
+    }
+
+    .topic-nav-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--muted);
+      margin-right: 0.5rem;
+      white-space: nowrap;
+    }
+
+    .topic-pill {
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      padding: 0.3rem 0.75rem;
+      font-size: 0.8rem;
+      background: rgba(15, 23, 42, 0.96);
+      color: #e5e7eb;
+      white-space: nowrap;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .topic-pill span {
+      font-size: 0.7rem;
+      opacity: 0.8;
+    }
+
+    .topic-pill:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    main {
+      margin-top: 0.5rem;
+    }
+
+    section {
+      margin-bottom: 2.5rem;
+      padding: 1.4rem 1.15rem 1.35rem;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      background: radial-gradient(circle at top left, rgba(15, 23, 42, 0.98), rgba(2, 6, 23, 0.98));
+      box-shadow: var(--shadow-soft);
+    }
+
+    section.intro {
+      border-color: var(--accent-border);
+      background: radial-gradient(circle at top, rgba(249, 115, 22, 0.12), rgba(15, 23, 42, 0.98));
+    }
+
+    section h2 {
+      margin-top: 0;
+      font-size: 1.25rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.35);
+      padding-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+
+    section h2 small {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    h3 {
+      margin-top: 1rem;
+      margin-bottom: 0.2rem;
+      font-size: 1rem;
+    }
+
+    p {
+      margin: 0.35rem 0;
+      font-size: 0.92rem;
+      line-height: 1.6;
+      color: #e5e7eb;
+    }
+
+    .muted {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    ul {
+      margin: 0.4rem 0 0.5rem 1.1rem;
+      padding: 0;
+      font-size: 0.9rem;
+      color: #d1d5db;
+    }
+
+    ul li {
+      margin-bottom: 0.25rem;
+    }
+
+    .callout {
+      border-radius: 10px;
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      background: rgba(15, 23, 42, 0.9);
+      padding: 0.65rem 0.75rem;
+      margin-top: 0.6rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .callout strong {
+      color: #e5e7eb;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.75rem;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+      margin-top: 0.35rem;
+    }
+
+    .tag {
+      font-size: 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      padding: 0.16rem 0.5rem;
+      color: var(--muted);
+    }
+
+    .checklist {
+      display: grid;
+      gap: 0.5rem;
+      margin-top: 0.6rem;
+    }
+
+    .check-item {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      gap: 0.55rem;
+      align-items: flex-start;
+      font-size: 0.9rem;
+    }
+
+    .check-icon {
+      width: 1.2rem;
+      height: 1.2rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      color: var(--accent);
+    }
+
+    .back-to-top {
+      margin-top: 0.9rem;
+      text-align: right;
+      font-size: 0.8rem;
+    }
+
+    .back-to-top a {
+      color: var(--muted);
+    }
+
+    .back-to-top a:hover {
+      color: var(--accent);
+    }
+
+    @media (max-width: 780px) {
+      .hero-inner {
+        grid-template-columns: minmax(0, 1fr);
+        padding-inline: 0.75rem;
+        gap: 0.75rem;
+      }
+      .hero-meta {
+        align-items: flex-start;
+      }
+      .hero-meta-card {
+        max-width: 100%;
+      }
+      .page {
+        padding-inline: 0.75rem;
+      }
+      section {
+        padding-inline: 0.9rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .topic-nav-wrapper {
+        border-radius: 18px;
+      }
+      .hero-title {
+        font-size: 1.3rem;
+        flex-wrap: wrap;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header id="top" class="hero">
+    <div class="hero-inner">
+      <div>
+        <div class="hero-title">
+          Reading Paul Today
+          <span class="hero-badge">Hermeneutic Field Guide</span>
+        </div>
+        <p class="hero-subtitle">
+          A practical framework for how Christians can understand and live out Paul’s teachings today —
+          honoring Scripture’s authority while paying attention to genre, context, and the heart of the gospel.
+        </p>
+        <div class="hero-actions">
+          <a href="#intro" class="btn btn-primary">
+            Start Reading
+            <span>↓</span>
+          </a>
+          <a href="#framework" class="btn">Framework First</a>
+          <a href="#checklist" class="btn">Passage Checklist</a>
+        </div>
+      </div>
+      <div class="hero-meta">
+        <div class="hero-meta-card">
+          <strong>Scope</strong>
+          <p>A thematic walk through Paul’s major teaching areas, with guidance on how to apply each today.</p>
+          <div class="chip-row">
+            <span class="chip">Authority of Scripture</span>
+            <span class="chip">Context &amp; Culture</span>
+            <span class="chip">Church Life</span>
+          </div>
+        </div>
+        <div class="hero-meta-card">
+          <strong>Use this when…</strong>
+          <p>• A passage from Paul feels confusing or sharp.</p>
+          <p>• Christians disagree about what “still applies.”</p>
+          <p>• You want a Christ-centered, non-dismissive way to read Paul.</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="page">
+    <div class="topic-nav-wrapper">
+      <nav class="topic-nav" aria-label="Paul topics navigation">
+        <span class="topic-nav-label">Topics</span>
+        <a class="topic-pill" href="#intro"><span>1</span>Overview</a>
+        <a class="topic-pill" href="#framework"><span>2</span>Framework</a>
+        <a class="topic-pill" href="#salvation"><span>3</span>Salvation &amp; Justification</a>
+        <a class="topic-pill" href="#law-grace"><span>4</span>Law &amp; Grace</a>
+        <a class="topic-pill" href="#morality"><span>5</span>Morality &amp; Love</a>
+        <a class="topic-pill" href="#church"><span>6</span>Church &amp; Gifts</a>
+        <a class="topic-pill" href="#leadership"><span>7</span>Leadership</a>
+        <a class="topic-pill" href="#family"><span>8</span>Family &amp; Sexuality</a>
+        <a class="topic-pill" href="#worship"><span>9</span>Worship &amp; Gifts</a>
+        <a class="topic-pill" href="#spirit"><span>10</span>Holy Spirit</a>
+        <a class="topic-pill" href="#cross"><span>11</span>Cross &amp; Resurrection</a>
+        <a class="topic-pill" href="#suffering"><span>12</span>Suffering &amp; Return</a>
+        <a class="topic-pill" href="#example"><span>13</span>Joy &amp; Humility</a>
+        <a class="topic-pill" href="#social"><span>14</span>Social Ethics</a>
+        <a class="topic-pill" href="#eschatology"><span>15</span>Final Things</a>
+        <a class="topic-pill" href="#checklist"><span>16</span>Passage Checklist</a>
+      </nav>
+    </div>
+
+    <main>
+      <!-- Intro -->
+      <section id="intro" class="intro">
+        <h2>
+          Why a Guide to Paul?
+          <small>Big picture</small>
+        </h2>
+        <p>
+          Paul’s letters shape almost every area of Christian life: the gospel, the church, sexuality,
+          money, spiritual gifts, gender, and more. He wrote as a missionary Jew to communities of both Jewish
+          and Gentile believers, often struggling with cultural differences and false teachings.
+        </p>
+        <p>
+          For many Christians, his writings are both deeply life-giving and deeply confusing. Some verses are
+          engraved on coffee mugs; others are flashpoints in church debates.
+        </p>
+        <p>
+          This guide assumes two things at the same time:
+        </p>
+        <ul>
+          <li><strong>Paul’s writings are inspired Scripture</strong> and carry enduring authority for the church.</li>
+          <li><strong>Paul’s letters are occasional, contextual documents</strong> — written to real churches,
+            in specific cultures, to address concrete problems.</li>
+        </ul>
+        <p>
+          Faithfulness means holding both: we don’t dismiss Paul as “outdated,” and we don’t rip sentences
+          out of context and apply them in ways that contradict the gospel he preached.
+        </p>
+        <div class="callout">
+          <strong>Key idea:</strong>
+          Paul doesn’t compete with Jesus. Paul is a Spirit-inspired witness who helps us see what it looks
+          like for Jesus to be Lord in real communities, with real sin, pain, and hope.
+        </div>
+        <div class="back-to-top">
+          <a href="#top">Back to top ↑</a>
+        </div>
+      </section>
+
+      <!-- Framework -->
+      <section id="framework">
+        <h2>
+          Framework: How to Read Paul Today
+          <small>Orientation grid</small>
+        </h2>
+        <p class="muted">
+          Before we zoom into specific topics, here is the “map” you carry with you whenever you open one
+          of Paul’s letters.
+        </p>
+
+        <h3>1. Christ at the center</h3>
+        <p>
+          Paul consistently points away from himself to Christ. Jesus’ death and resurrection, not Paul’s
+          personality or preferences, are the core. Any reading of Paul that:
+        </p>
+        <ul>
+          <li>Contradicts Jesus’ character or teaching, or</li>
+          <li>Makes Paul the center instead of Christ,</li>
+        </ul>
+        <p>
+          is already off-course.
+        </p>
+
+        <h3>2. Letters, not abstract textbooks</h3>
+        <p>
+          Paul writes to churches with specific problems: division in Corinth, legalism in Galatia,
+          persecution in Thessalonica, false teaching in Colossae, and so on. So we ask:
+        </p>
+        <ul>
+          <li>What was the situation he was speaking into?</li>
+          <li>What is the timeless principle underneath his specific instructions?</li>
+          <li>How might the same principle look in our context?</li>
+        </ul>
+
+        <h3>3. Already / not yet</h3>
+        <p>
+          Paul sees Christians living between two worlds: the old age (sin, death, broken systems) and
+          the new age launched by Christ’s resurrection. Some of his instructions lean toward
+          <em>stability</em> in a broken world; others lean toward <em>signs of the coming kingdom</em>.
+        </p>
+
+        <h3>4. Whole-Bible coherence</h3>
+        <p>
+          Paul reads the Old Testament constantly. We read Paul best when we:
+        </p>
+        <ul>
+          <li>Notice when he is echoing the Torah, Psalms, or Prophets.</li>
+          <li>Let Scripture interpret Scripture, rather than isolating him from the rest of the Bible.</li>
+        </ul>
+
+        <div class="callout">
+          <strong>Practice:</strong>
+          Before you debate a single verse from Paul, read the whole chapter (or letter) and ask:
+          “If I had only this letter, what would I think Paul is most passionate about?”
+        </div>
+
+        <div class="tag-row">
+          <span class="tag">Christ-centered reading</span>
+          <span class="tag">Context-aware</span>
+          <span class="tag">Whole-Bible lens</span>
+        </div>
+
+        <div class="back-to-top">
+          <a href="#top">Back to top ↑</a>
+        </div>
+      </section>
+
+      <!-- Salvation -->
+      <section id="salvation">
+        <h2>
+          Salvation &amp; Justification by Faith
+          <small>Saved by grace</small>
+        </h2>
+
+        <h3>What Paul teaches</h3>
+        <p>
+          “Everyone has sinned and falls short of God’s glory, and all are justified freely by his grace
+          through the redemption that is in Christ Jesus” (Rom. 3:23–24). Paul insists we are saved by
+          faith in Christ, not by human effort. He says plainly that “a person is not justified by works
+          of the Law but through faith in Jesus Christ.”
+        </p>
+        <p>
+          This was radical in his day because he was addressing debates about whether Gentile converts
+          must adopt Jewish law (circumcision, kosher food, Sabbath) to be truly in God’s covenant family.
+          Historically, Romans was written to a divided church of Jews and Gentiles in Rome; many Jewish
+          Christians expected all to obey Torah laws, causing tension as some Gentile believers felt
+          enslaved by old customs.
+        </p>
+        <p>
+          Paul’s reply was that God’s promise has always come by grace through faith. He pointed to
+          Abraham, “who believed God, and it was counted to him as righteousness,” meaning even the
+          patriarch was accepted by faith, not law.
+        </p>
+        <p>
+          Theologically, Paul means that God’s righteousness (His just and faithful character) is revealed
+          in Jesus. Through the cross and resurrection Christ dealt with our sin so that trusting in him
+          makes us right with God. Jesus became what we are so that we might share in what he is. In other
+          words, Jesus’ sacrifice is the only ground of our justification; human merit plays no part.
+        </p>
+
+        <h3>Binding or contextual?</h3>
+        <p>
+          Paul treats justification by faith as a timeless gospel principle. It is the heart of the gospel.
+          All Christians everywhere are called to trust Christ alone for salvation. However, Paul also
+          insisted that true faith shows itself in love and obedience (for example, Galatians 5:6).
+          Genuine believers will produce fruit even while these works never earn salvation.
+        </p>
+
+        <h3>How we live this today</h3>
+        <p>
+          We apply this by resting in Jesus’ finished work rather than striving to earn God’s approval.
+          We avoid both pride and despair (since nobody can measure up) and instead live gratefully.
+          Paul told the Galatians to “stand firm…and do not submit again to a yoke of slavery” (Gal. 5:1) –
+          slavery to law-keeping. Likewise, modern Christians find freedom in the gospel by embracing grace,
+          yet out of gratitude we cultivate the fruit of the Spirit (Gal. 5:22–25).
+        </p>
+        <p>
+          In practical terms, this means we trust Jesus to save us, rejoice in that gift, and obey God
+          motivated by love, not legalism. It also calls us to preach this gospel to all people exactly
+          as Paul did, confident it is “the power of God for salvation to everyone who believes” (Rom. 1:16).
+        </p>
+
+        <div class="back-to-top">
+          <a href="#top">Back to top ↑</a>
+        </div>
+      </section>
+
+        <!-- Law & Grace -->
+      <section id="law-grace">
+        <h2>
+          Law, Grace &amp; Christian Freedom
+          <small>No longer under a tutor</small>
+        </h2>
+
+        <h3>What Paul teaches</h3>
+        <p>
+          Paul taught that the Mosaic Law was never God’s ultimate path to righteousness. In Galatians,
+          he protested against teachers who insisted Gentiles be circumcised and follow Torah laws to be saved.
+          He argued instead that Christ fulfills the Law, and now the Spirit enables believers to live
+          righteously by love.
+        </p>
+        <p>
+          Paul compared the Law’s purpose to that of a tutor or guardian leading to Christ (Gal. 3:24).
+          Once people come to faith in Christ, they inherit God’s promises by faith, not by the old
+          boundary markers. In Romans, he acknowledges the value of the Law to highlight sin, but says
+          it cannot justify anyone.
+        </p>
+        <p>
+          He wanted Christians to understand that God’s grace through Christ supersedes the old covenant.
+          Believers are no longer slaves but sons and daughters through faith. Thus he exhorted us to
+          live by the Spirit rather than by the flesh, which produces the fruit of the Spirit
+          (Gal. 5:16–25). Rather than obeying rules to earn God’s favor, Christians obey out of inner
+          transformation by the Spirit.
+        </p>
+
+        <h3>Binding or contextual?</h3>
+        <p>
+          The principle of grace over ritual law is universal. The old ceremonial laws (diet, festivals,
+          circumcision) were specific to first-century Judaism and pointed ahead to Christ, so they are
+          no longer binding in detail. Paul calls observance of those as a requirement for salvation
+          a “yoke” from which Christ freed his followers.
+        </p>
+        <p>
+          However, the underlying moral truths (honesty, justice, mercy, fidelity, compassion) reflect
+          God’s character and remain binding. Paul repeatedly said the Spirit produces behavior even
+          surpassing what the old Law demanded. He lists love as the fulfillment of the Law
+          (Rom. 13:8–10, Gal. 5:14).
+        </p>
+
+        <h3>How we live this today</h3>
+        <p>
+          Paul’s teaching frees us from legalism while urging love as our guide. In matters of food, music,
+          worship style, and other disputable issues, each believer can act according to conscience,
+          so long as we do not cause other Christians to stumble (1 Cor. 8–10; Rom. 14).
+          The timeless principle is love-driven obedience, not bondage to form.
+        </p>
+        <p>
+          In a work setting, for example, one might choose to observe or not observe a special fast,
+          but should do so respectfully. In a mixed congregation, one should accommodate weaker consciences.
+          Overall, the gospel of grace empowers us to obey God willingly, without constantly asking,
+          “How much of the old Law do I need to keep now?” Instead we live grateful, Spirit-filled lives of service.
+        </p>
+
+        <div class="back-to-top">
+          <a href="#top">Back to top ↑</a>
+        </div>
+      </section>
+
+      <!-- Morality & Love -->
+      <section id="morality">
+        <h2>
+          Christian Morality &amp; Love
+          <small>Ethics from the gospel</small>
+        </h2>
+
+        <h3>What Paul teaches</h3>
+        <p>
+          Paul’s letters teem with moral instruction, but always rooted in the gospel.
+          He repeatedly says love is the highest law. For instance, he writes that
+          “love is the fulfilling of the law” (Rom. 13:10) and that Christians are to “walk in love,
+          as Christ loved us” (Eph. 5:2).
+        </p>
+        <p>
+          In Galatians he lists the fruit of the Spirit – love, joy, peace, patience, kindness, goodness,
+          faithfulness, gentleness, self-control – as the evidence of true Christian life. In
+          1 Corinthians 13 he teaches that even the greatest spiritual gifts are worthless without love.
+          He defines love as patient and kind, not envious or boastful, bearing all things and enduring
+          all things.
+        </p>
+        <p>
+          Paul’s context was often church life gone awry. In Corinth, believers were quarreling, living
+          immorally, and even treating communion irreverently. He rebukes sexual immorality by saying
+          “flee from sexual immorality” (1 Cor. 6:18) and reminds them that their bodies are temples of
+          the Holy Spirit. He warns that sins like greed, impurity and idolatry will exclude people from
+          God’s kingdom (1 Cor. 6:9–10).
+        </p>
+        <p>
+          He also insists that a little unchecked sin corrupts the community, so he calls the church to
+          confront serious sin (1 Cor. 5), always with restoration as the aim.
+        </p>
+
+        <h3>Binding or contextual?</h3>
+        <p>
+          Paul’s ethical principles – love, holiness, honesty, sexual purity, forgiveness, mercy – are
+          timeless. His insistence that marriage is honored, that Christians abstain from adultery and
+          exploitation, and that we speak truthfully all reflect patterns God built into creation.
+        </p>
+         <p>
+          Some concrete instructions had a cultural angle. For instance, Paul’s advice on head coverings
+          (1 Cor. 11) and his restrictions on disruptive speech in some gatherings (1 Tim. 2:11–12;
+          1 Cor. 14:34–35) were given in specific settings. We must discern which commands express
+          universal truth (for example, modesty, mutual respect, order) and which are culturally
+          conditioned forms.
+        </p>
+
+        <h3>How we live this today</h3>
+        <p>
+          Practically, Paul’s moral teachings call us to live out the love of Christ in community.
+          That means pursuing justice, personal holiness, and reconciliation. His call to love and honor
+          one another should guide business ethics, family life, sexuality, and conflict resolution.
+        </p>
+        <p>
+          In church gatherings, following Paul, we ensure order and edification: everyone may speak or pray,
+          but it must be for strengthening the church. His long exposition of love encourages us that our
+          motivation in everything – giving, preaching, serving – must be love.
+        </p>
+        <p>
+          On a personal level, his teaching pushes us to examine our relationships:
+          Are we patient with others? Do we forgive? Do we use our freedom to serve?
+          Paul would say the most important fruit of any Christian life is love.
+        </p>
+
+        <div class="back-to-top">
+          <a href="#top">Back to top ↑</a>
+        </div>
+      </section>
+
+      <!-- Church & Gifts -->
+      <section id="church">
+        <h2>
+          The Church: Unity, Gifts &amp; Discipline
+          <small>Many members, one body</small>
+        </h2>
+
+        <h3>What Paul teaches</h3>
+        <p>
+          Paul often compares the church to a single body with many parts (Rom. 12:4–5;
+          1 Cor. 12:12–27; Eph. 4:4–6). Every believer is a unique “member” of this body and all are
+          equal before Christ. In Corinth, Christians were dividing into camps
+          (Paul vs. Apollos vs. Cephas), and he sharply asks, “Is Christ divided?”
+        </p>
+        <p>
+          He insists leaders are merely servants and that Christ is the only foundation.
+          He writes that “to each is given the manifestation of the Spirit for the common good”
+          (1 Cor. 12:7) and lists many gifts: wisdom, faith, healing, teaching, tongues, and more.
+          The goal is building up the church, not self-promotion.
+        </p>
+        <p>
+          Paul emphasizes orderly worship: “Let all things be done for building up” (1 Cor. 14:26).
+          He warns that exercising a gift without love is worse than nothing (1 Cor. 13).
+        </p>
+
+        <h3>Historical context</h3>
+        <p>
+          Early churches were small communities with big disagreements. In Corinth, some abused spiritual
+          gifts to impress others, causing disorderly worship. In Ephesus and elsewhere, believers had to
+          navigate ethnic and social divisions.
+        </p>
+        <p>
+          Paul’s message everywhere is that ethnic status (Jew or Greek), social status (slave or free),
+          and gender are secondary to being united in Christ. He famously writes,
+          “In Christ… there is no Greek or Jew, circumcised or uncircumcised, slave or free” – for
+          Christ is all, and in all (Col. 3:11).
+        </p>
+
+        <h3>Binding or contextual?</h3>
+        <p>
+          The principles of unity and mutual service are timeless: all believers everywhere remain one
+          body under Christ. We must cherish unity and diversity in the church.
+        </p>
+        <p>
+          Some concrete examples reflect his context. The specific form of church discipline in
+          1 Corinthians 5 (expelling a moral offender) was suited to a tight-knit city church;
+          today, different contexts might apply the same principle of holiness and care in different ways.
+          Likewise, Paul’s exact lists of spiritual gifts reflect first-century needs. His underlying
+          rule is clear, though: all gifts, whatever their form, are meant to serve the community in love,
+          not to exalt individuals.
+        </p>
+
+        <h3>How we live this today</h3>
+        <p>
+          Churches today can apply these teachings by promoting servanthood and humility.
+          Paul’s own example – calling himself “the worst of sinners” yet chosen by grace –
+          underlines that leaders should not lord authority but serve.
+        </p>
+        <p>
+          When choosing church leaders and assigning roles, communities still use Paul’s criteria
+          (see the leadership section) to ensure integrity. We also heed his model of discipline:
+          confronting sin gently but firmly, aiming at repentance and restoration, remembering that those
+          involved are brothers and sisters in Christ.
+        </p>
+        <p>
+          For individual Christians, remembering we are part of a body means we should both use our gifts
+          and appreciate others’. If you teach, encourage; if you help, rejoice that the body is built up.
+          Paul would ask each of us: “How are you serving your brothers and sisters in Christ?”
+        </p>
+
+        <div class="back-to-top">
+          <a href="#top">Back to top ↑</a>
+        </div>
+      </section>
+
+      <!-- Leadership -->
+      <section id="leadership">
+        <h2>
+          Leadership &amp; Church Structure
+          <small>Servant oversight</small>
+        </h2>
+
+        <h3>What Paul teaches</h3>
+        <p>
+          Paul’s letters to Timothy and Titus (the “Pastoral Epistles”) give concrete instructions
+          for organizing churches. He assumes each local church should appoint elders (overseers) and
+          deacons to shepherd the flock. In Titus he charges Titus to “appoint elders in every town,” choosing
+          mature people of blameless character: faithful in marriage, self-controlled, hospitable,
+          able to teach, not greedy or violent.
+        </p>
+           <p>
+          These leaders were meant to model Christian living and guard sound doctrine. In Crete and Ephesus,
+          false teachers were upsetting households with distorted gospels, and Paul sends Titus and Timothy
+          to restore order.
+        </p>
+        <p>
+          Paul emphasizes that doctrine shapes conduct. What a congregation believes about Jesus fundamentally
+          determines how it behaves. So the qualifications he lists underline integrity, faithfulness in
+          family life, and commitment to the gospel. These rules were expressed in a patriarchal context
+          (where households were run by male heads), but the underlying moral vision is clear: godly leaders
+          are marked by faith, love, gentleness, self-discipline, and a peaceful home.
+        </p>
+
+        <h3>Binding or contextual?</h3>
+        <p>
+          The principle of qualified servant leadership is universal. The idea that leaders must be
+          above reproach, hospitable, able to teach, and not domineering is not bound to any one culture.
+        </p>
+        <p>
+          The exact descriptors (male, married, householders) come from that world. Today, churches still
+          recognize the need for mature leaders who teach sound doctrine and who live exemplary lives.
+          Whether women can serve in these roles is debated: Paul’s instruction that “I do not permit
+          a woman to teach or to exercise authority over a man” (1 Tim. 2:12) is interpreted differently
+          by faithful Christians.
+        </p>
+        <p>
+          Some see it as limited to a particular situation in Ephesus (where some women were spreading
+          false teaching). Others read it as a universal pattern. Either way, Paul also affirms that men
+          and women are equal in Christ (Gal. 3:28), so the heart of his teaching is that all leadership
+          must be exercised humbly and faithfully, not as domination.
+        </p>
+
+        <h3>How we live this today</h3>
+        <p>
+          Churches honor Paul’s teaching by carefully training and selecting leaders (pastors, elders,
+          deacons) who meet godly qualifications. Congregations often use 1 Timothy 3 and Titus 1 as
+          checklists.
+        </p>
+        <p>
+          We also follow his emphasis that leaders should not exploit the flock. Paul at times refused
+          financial support so no one could accuse him of greed. All church members, in turn, should submit
+          to loving leadership while leaders must serve as examples, not tyrants.
+        </p>
+        <p>
+          Paul’s pastoral heart means we restore order gently when problems occur, always with repentance
+          and healing as the goal.
+        </p>
+
+        <div class="back-to-top">
+          <a href="#top">Back to top ↑</a>
+        </div>
+      </section>
+
+      <!-- Family & Sexuality -->
+      <section id="family">
+        <h2>
+          Family, Gender &amp; Sexuality
+          <small>Household under Christ</small>
+        </h2>
+
+        <h3>What Paul teaches</h3>
+        <p>
+          Paul addresses family and sexual ethics in several letters, always urging believers to honor
+          God in these relationships. In household codes (Eph. 5:22–6:9; Col. 3:18–4:1; Titus 2:1–10),
+          he applies gospel principles to marriage, parenthood, and even slave–master relations.
+        </p>
+        <p>
+          He tells wives to respect their husbands and husbands to love their wives “as Christ loved the
+          church and gave himself up for her.” He instructs children to obey parents, and fathers not to
+          provoke their children but to raise them in the Lord. These instructions echo Greco-Roman family
+          expectations but are transformed by Christ’s lordship: authority is reframed as sacrificial service,
+          and submission is reframed as voluntary trust under God.
+        </p>
+        <p>
+          Paul also deploys powerful family imagery for the church: adoption, inheritance, brothers and sisters,
+          co-heirs of Christ. In Colossians and Galatians he says that in Christ social divisions
+          (Jew/Greek, slave/free, male/female) are relativized; all are one in Christ.
+        </p>
+        <p>
+          In Philemon he applies this dramatically. Onesimus, a runaway slave, has become a Christian.
+          Paul pleads with Philemon to receive him not as property but “as a beloved brother,” even offering
+          to cover any debt Onesimus owes. The cross levels all distinctions.
+        </p>
+        <p>
+          On sexual ethics, Paul is explicit. He commands Christians to flee sexual immorality (1 Cor. 6:18)
+          and to honor marriage. In a world of temple prostitution and casual sex, he insists sex belongs
+          within the covenant of marriage (1 Cor. 7). He teaches that the body is for the Lord and the Lord
+          for the body, and that our bodies are temples of the Holy Spirit.
+        </p>
+
+        <h3>Binding or contextual?</h3>
+        <p>
+          Paul’s call to purity and fidelity is broadly seen as universal. Marriage vows and chastity are
+          treated as God-given values throughout Scripture. The principles behind Paul’s words – that sex is
+          to be treasured within marriage and that everyone should be treated with dignity – remain applicable.
+        </p>
+        <p>
+          Some specifics may be culturally bound. Paul’s instructions about women in certain church
+          gatherings were given in particular contexts where some women were being misled or were
+          disrupting worship. Faithful readers disagree on how far these should be generalized.
+        </p>
+        <p>
+          Whatever one’s view, Paul’s overarching ethic is mutual submission “out of reverence for Christ”
+          (Eph. 5:21) and service to one another. His core message is not that some gender dominates, but
+          that all believers imitate Christ’s self-giving love in their roles.
+        </p>
+
+        <h3>How we live this today</h3>
+        <p>
+          Paul’s emphasis on equality in Christ invites us to treat each person (man or woman, slave or free)
+          with full respect. In marriage, his command to husbands and wives is usually read in light of
+          mutual sacrificial love: both are called to lay down their lives as Christ did.
+        </p>
+        <p>
+          Children and parents still follow Paul’s advice to honor one another as part of a Christian
+          household. In terms of sexuality, the clear application is sexual fidelity within marriage and
+          abstinence outside it, understanding that our bodies honor God.
+        </p>
+        <p>
+          This may conflict with prevailing cultural norms, but Paul would say that God’s design for sex
+          is not arbitrary. We also learn to treat coworkers, neighbors, and strangers as image-bearers
+          of God. Paul’s move to call slave and master “brothers” continues to inspire Christians to
+          oppose injustice and uphold human dignity.
+        </p>
+
+        <div class="back-to-top">
+          <a href="#top">Back to top ↑</a>
+        </div>
+      </section>
+       <!-- Worship & Gifts -->
+      <section id="worship">
+        <h2>
+          Spiritual Gifts &amp; Worship
+          <small>Ordered love</small>
+        </h2>
+
+        <h3>What Paul teaches</h3>
+        <p>
+          Paul’s teaching on worship is practical and centered on love. In 1 Corinthians 11–14 he addresses
+          chaotic services in Corinth where some were hogging attention by speaking in tongues or prophesying
+          loudly.
+        </p>
+        <p>
+          He reminds them that worship is for God’s glory and the building up of others. Though many kinds of
+          Spirit-given gifts exist, they should be exercised for the common good, in order, and motivated by love.
+          He permits speaking in tongues only if an interpreter is present, so the church can understand.
+        </p>
+        <p>
+          He scolds those who seek ecstatic experiences at the expense of newcomers hearing the gospel
+          and tells them to prefer intelligible words that help others.
+        </p>
+        <p>
+          Above all, he elevates love as the greatest gift: 1 Corinthians 13 concludes that faith, hope
+          and love abide, but the greatest is love. Even the most dramatic spiritual gift is nothing
+          if it does not serve in love.
+        </p>
+
+        <h3>Binding or contextual?</h3>
+        <p>
+          The practical principles of Paul’s worship teaching are universal: orderliness, mutual respect,
+          and love must rule our gatherings. How exactly that looks can vary.
+          Paul doesn’t prescribe one fixed liturgy, but he insists the motive is to honor God and care
+          for others.
+        </p>
+        <p>
+          Issues like head coverings, seating arrangements, or precise liturgical forms are culturally bound.
+          What remains binding is the spirit: use whatever gifts God has given you in a loving and humble way,
+          so that when you come together, all things are done for building up.
+        </p>
+
+        <h3>How we live this today</h3>
+        <p>
+          Churches apply Paul by encouraging members to discover and use their spiritual gifts in service,
+          not for personal glory. Leaders often use Paul’s lists (Romans 12, 1 Corinthians 12, Ephesians 4)
+          to help people identify gifts.
+        </p>
+        <p>
+          In worship services, many congregations adopt policies inspired by Paul: anyone can pray or
+          testify, but usually through a shared structure so as not to create confusion.
+          Teaching the Word is central, so that everyone understands.
+        </p>
+        <p>
+          Above all, communities intentionally foster “one another” relationships as the practical
+          outworking of all gifts. The Holy Spirit can move powerfully, but should never produce confusion
+          or pride; everything must give glory to Jesus and love to neighbors.
+        </p>
+
+        <div class="back-to-top">
+          <a href="#top">Back to top ↑</a>
+        </div>
+      </section>
+
+      <!-- Holy Spirit -->
+      <section id="spirit">
+        <h2>
+          The Holy Spirit &amp; Sanctification
+          <small>Life in the Spirit</small>
+        </h2>
+
+        <h3>What Paul teaches</h3>
+        <p>
+          Paul consistently teaches that the Holy Spirit is the source of Christian life.
+          Receiving the Spirit brings believers into God’s family, marks them as belonging to Christ,
+          and empowers them to live differently.
+        </p>
+        <p>
+          He contrasts living “according to the flesh” (our old sinful nature) with living “by the Spirit”
+          (Rom. 8:5–13). In Galatians, he says that trusting Christ and living dependently on the Spirit
+          produces the fruit of the Spirit: love, joy, peace, patience, kindness, goodness, faithfulness,
+          gentleness, self-control.
+        </p>
+        <p>
+          Paul adds that this life requires daily cooperation: “If we live by the Spirit, let us also keep
+          in step with the Spirit” (Gal. 5:25) – in other words, we must prune sinful habits and cultivate
+          new virtues. The Spirit writes God’s law on our hearts and changes us from the inside out.
+        </p>
+
+        <h3>Binding or contextual?</h3>
+        <p>
+          Believing in and seeking the Holy Spirit’s work is universal to Paul’s teaching. Salvation is
+          both justification (by faith) and sanctification (by the Spirit).
+        </p>
+        <p>
+          Specific manifestations of the Spirit (tongues, healings, prophecies) are debated among Christians,
+          but Paul sees all gifts as coming from one Spirit for building up the church. No gift is meant to
+          operate without love or self-control.
+        </p>
+
+        <h3>How we live this today</h3>
+        <p>
+          We apply this teaching by relying on the Spirit’s power rather than our own resolve.
+          Prayer, Scripture, and fellowship are means by which the Spirit nurtures us.
+        </p>
+        <p>
+          When facing temptation, we remember Galatians 5:16 – “walk by the Spirit, and you will not gratify
+          the desires of the flesh” – and intentionally lean on God for strength.
+          Small-group communities and discipleship relationships are ways we “carry one another’s burdens”
+          through the Spirit’s love.
+        </p>
+        <p>
+          Practically, this can look like confessing sin to one another, praying for one another’s healing
+          and growth, and asking God regularly to fill us with his Spirit (Eph. 5:18).
+        </p>
+
+        <div class="back-to-top">
+          <a href="#top">Back to top ↑</a>
+        </div>
+      </section>
+        <!-- Cross & Resurrection -->
+      <section id="cross">
+        <h2>
+          The Cross &amp; Resurrection
+          <small>Center of Paul’s gospel</small>
+        </h2>
+
+        <h3>What Paul teaches</h3>
+        <p>
+          At the heart of Paul’s theology is the cross and resurrection of Jesus. He often summarizes
+          the gospel as “Christ died for our sins… he was raised on the third day” (1 Cor. 15:3–4).
+          Paul says in preaching he decided “to know nothing except Jesus Christ and him crucified”
+          (1 Cor. 2:2).
+        </p>
+        <p>
+          He explains that Jesus took our penalty upon himself and by rising again conquered sin and death
+          for us. As a result, “in Christ we become new creations” (2 Cor. 5:17). By faith we share in his
+          death and resurrection life (Gal. 2:20).
+        </p>
+        <p>
+          Paul teaches that if Christ has not been raised, then our faith is futile and we are still in
+          our sins (1 Cor. 15:17). The resurrection means the old age is passing away and a new creation
+          has begun.
+        </p>
+
+        <h3>Binding or contextual?</h3>
+        <p>
+          The death and resurrection of Jesus are the core of Christian faith for all time.
+          Paul’s letters make clear this is not cultural or optional. “Jesus is Lord” (the risen Lord)
+          is the confession at the center of the Christian story.
+        </p>
+        <p>
+          Christians can debate some details about how the resurrection will unfold, but the fact
+          of Christ’s resurrection and its saving significance is absolutely central and timeless.
+        </p>
+
+        <h3>How we live this today</h3>
+        <p>
+          Paul’s teaching on the cross and resurrection undergirds all his other instructions.
+          It assures Christians that justice will ultimately prevail and that God has dealt
+          decisively with sin.
+        </p>
+        <p>
+          This inspires gratitude, humility and courage. Even when persecuted or facing death,
+          Christians can participate in Jesus’ life with confidence. It also guides mission:
+          Paul would not water down the cross, even when it was foolishness to some and offensive
+          to others. Today, it calls believers to preach Christ crucified and risen above all else.
+        </p>
+        <p>
+          This transforms priorities: comforts, health, and status are not ultimate. Serving the
+          gospel and becoming like Christ are.
+        </p>
+
+        <div class="back-to-top">
+          <a href="#top">Back to top ↑</a>
+        </div>
+      </section>
+
+      <!-- Suffering & Return -->
+      <section id="suffering">
+        <h2>
+          Suffering, Endurance &amp; the Return of Christ
+          <small>Hope under pressure</small>
+        </h2>
+
+        <h3>What Paul teaches</h3>
+        <p>
+          Paul frequently writes about facing trials with hope. He sees suffering as sharing in Christ’s
+          own sufferings (Phil. 3:10; Col. 1:24) and as a means to testify to God’s power
+          (2 Cor. 12:9–10).
+        </p>
+        <p>
+          In Philippians he even says, “to live is Christ, and to die is gain” (Phil. 1:21) – meaning that
+          being alive lets him serve Jesus and others, while dying would take him to be with Jesus,
+          which he counts as gain.
+        </p>
+        <p>
+          Regarding the Second Coming, Paul wrote 1–2 Thessalonians to churches anxious about the return
+          of Jesus. He teaches that Jesus will return visibly to judge and restore the world.
+          He reassures suffering believers that their persecution will not last forever and that God will
+          grant relief and justice.
+        </p>
+        <p>
+          He also corrects false rumors that the “day of the Lord” had already come, reminding them that
+          Christ’s coming will follow certain events, and that they should not be shaken by sensational
+          claims.
+        </p>
+
+        <h3>Binding or contextual?</h3>
+        <p>
+          Paul’s hope in the resurrection of the dead and Christ’s return is universal for Christians.
+          The general outcome – that Christ will judge evil and vindicate the faithful – is core to
+          Christian faith.
+        </p>
+        <p>
+          The timeless principle is to live expectantly and ethically, not being idle or despairing.
+          The precise timeline or identity of end-time figures remains mysterious; Paul’s focus is not
+          on speculation but on steadfast faith and love.
+        </p>
+
+        <h3>How we live this today</h3>
+        <p>
+          For modern Christians, Paul’s eschatology means our hope shapes our living.
+          We remain confident that injustice will be set right and that persecution is not ultimate defeat.
+        </p>
+        <p>
+          Practical steps include standing firm in trials, praying for one another, and focusing on
+          Christlike living rather than apocalyptic thrill-seeking. Christians might debate precise
+          end-time timelines, but Paul’s advice is clear: work, love, and serve as long as there is breath.
+        </p>
+        <p>
+          He also tells believers to comfort one another with the promise that the dead in Christ
+          will rise and that we will be with the Lord forever (1 Thes. 4:16–18).
+          This helps believers face death or loss with hope.
+        </p>
+
+        <div class="back-to-top">
+          <a href="#top">Back to top ↑</a>
+        </div>
+      </section>
+        <!-- Joy & Humility -->
+      <section id="example">
+        <h2>
+          Spiritual Example: Joy, Humility &amp; Generosity
+          <small>Paul’s way of life</small>
+        </h2>
+
+        <h3>What Paul teaches</h3>
+        <p>
+          Throughout his letters Paul models and instructs a Christlike attitude in daily life.
+          A standout example is his letter to the Philippians, sent from prison: even in chains Paul
+          exults, “Rejoice in the Lord always; again I will say, rejoice!” (Phil. 4:4).
+        </p>
+        <p>
+          He teaches that true contentment and joy come from Christ, not circumstances.
+          He writes, “for me to live is Christ, and to die is gain,” meaning that life and death
+          are both defined by belonging to Jesus.
+        </p>
+        <p>
+          He also gives us the famous Christ hymn in Philippians 2:6–11, which says Christ “emptied himself”
+          by becoming human and obedient to death, even death on a cross. Paul urges believers to have this
+          same mindset – valuing others above themselves and serving sacrificially.
+        </p>
+        <p>
+          Paul teaches generosity too. In 2 Corinthians 8–9 he exhorts the churches to give to the poor
+          with a willing heart, emphasizing that God loves a cheerful giver and that financial generosity
+          is part of Christian worship. In Philippians he commends the believers for supporting him,
+          calling their gift “a fragrant offering, an acceptable sacrifice, pleasing to God.”
+        </p>
+
+        <h3>Binding or contextual?</h3>
+        <p>
+          The principle of imitating Christ’s humility and love is universal. Christians everywhere
+          are called to selflessness and joy in suffering, not despair or bitterness.
+        </p>
+        <p>
+          The specifics (such as Paul’s personal choice to remain single or to decline support in some
+          places) are his own, but the underlying lessons are timeless. His commands to rejoice, give
+          thanks in all things, and consider others as more significant than ourselves apply across cultures.
+        </p>
+
+        <h3>How we live this today</h3>
+        <p>
+          We follow Paul’s example by nurturing joy in Christ even when life is hard.
+          This might mean focusing on prayer and thanksgiving amidst trials, as Paul did.
+        </p>
+        <p>
+          We also practice humility: in workplaces or churches, we can “count others more significant
+          than ourselves” by genuinely listening, serving, and not insisting on our preferences.
+        </p>
+        <p>
+          Paul’s teaching on generosity inspires us to help those in need, support ministry, and share
+          resources. He sees these acts as tangible expressions of the gospel’s love and as sacrifices
+          pleasing to God.
+        </p>
+
+        <div class="back-to-top">
+          <a href="#top">Back to top ↑</a>
+        </div>
+      </section>
+
+      <!-- Social Ethics -->
+      <section id="social">
+        <h2>
+          Social Ethics: Slavery, Work &amp; Government
+          <small>Faith in public</small>
+        </h2>
+
+        <h3>What Paul teaches</h3>
+        <p>
+          Although Paul did not initiate social revolutions, his letters contain seeds that undermine
+          injustice. He never commands Christians to revolt against Roman slavery or empire,
+          but he transforms personal relationships in ways that point beyond those systems.
+        </p>
+        <p>
+          In Philemon, we see him gently subvert slavery. Onesimus, a runaway slave, becomes a Christian
+          under Paul’s ministry. Paul writes to Philemon, Onesimus’s owner, to forgive the slave and
+          receive him “no longer as a slave, but more than a slave, as a beloved brother.”
+          He even offers to pay back any wrong Onesimus has done. This models Christ absorbing the
+          punishment for sinners and implies that the slave is equal to his master before God.
+        </p>
+        <p>
+          Regarding work and wealth, Paul advises sobriety and diligence. In Thessalonica he commends those
+          who labor for their living and sternly tells the idle to work (2 Thes. 3:10).
+          In Ephesians he calls believers to do honest work with their hands so they can share with those in need.
+          To the rich he warns not to trust in wealth but to be rich in good works, generous and ready to share
+          (1 Tim. 6:17–18).
+        </p>
+        <p>
+          On government, Paul writes in Romans 13 that every person should be subject to the governing authorities,
+          for there is no authority except from God. He says taxes should be paid and that rulers are meant
+          to be God’s servants for justice. This was bold in an empire where power could be brutal.
+        </p>
+        <p>
+          Paul’s counsel is that Christians should normally be good citizens, honoring laws that do not
+          force them to sin, while remembering that human authorities are accountable to God.
+        </p>
+
+        <h3>Binding or contextual?</h3>
+        <p>
+          The principle of mutual respect, responsible citizenship, and concern for justice holds across ages.
+          Paul’s advice to honor leaders and authorities is generally seen as universal, with the caveat that we
+          must obey God rather than humans when the two conflict.
+        </p>
+        <p>
+          He does not explicitly outlaw slavery, but by declaring that in Christ there is no slave or free,
+          and by his appeal in Philemon, he plants the seeds for Christians to eventually reject slavery as
+          incompatible with the gospel. His ethic is relationally subversive: master and slave share one Lord.
+        </p>
+
+        <h3>How we live this today</h3>
+        <p>
+          Believers today apply Paul’s social teachings by advocating equality and justice and by treating
+          everyone (employees, neighbors, refugees, the poor) with full human dignity.
+        </p>
+        <p>
+          In workplaces, we follow Paul’s ethic by doing honest work and using our wealth compassionately.
+          Governments are to be respected insofar as they allow godly living; Christians pray for leaders
+          and seek laws that protect the vulnerable and promote peace.
+        </p>
+        <p>
+          Ultimately, Paul’s teachings on social order remind us that faithfulness to Christ transcends,
+          but also transforms, social systems. We live with integrity under civil law, yet our primary
+          allegiance is to Christ as King.
+        </p>
+
+        <div class="back-to-top">
+          <a href="#top">Back to top ↑</a>
+        </div>
+      </section>
+         <!-- Eschatology -->
+      <section id="eschatology">
+        <h2>
+          Eschatology: The Kingdom &amp; Final Things
+          <small>Living between the times</small>
+        </h2>
+
+        <h3>What Paul teaches</h3>
+        <p>
+          Paul teaches that God’s story will reach its climax in the return of Christ and the renewal
+          of creation. He expects Jesus to return and to inaugurate God’s eternal kingdom.
+        </p>
+        <p>
+          In Philippians 3:20 he writes, “Our citizenship is in heaven,” indicating that Christians live
+          as exiles on earth awaiting their true King. In Romans 8:18–25 he describes all creation groaning
+          in expectation of the revealing of the children of God – a clear eschatological hope.
+        </p>
+        <p>
+          Paul’s message is that every believer lives between the times: we have been saved and given the
+          Spirit, yet we await a future glory that will far outweigh our present sufferings.
+        </p>
+
+        <h3>Binding or contextual?</h3>
+        <p>
+          Belief in Christ’s return and the resurrection of the dead is a core article of Christian faith.
+          Paul taught it to all the churches; denying it was a serious error to him.
+        </p>
+        <p>
+          Details (the timing, specific end-time figures, or interpretive schemes) have been debated
+          for centuries, but none of those alter the basic call: to live now as citizens of the coming
+          kingdom.
+        </p>
+
+        <h3>How we live this today</h3>
+        <p>
+          Christians apply this by living with eternity in view. We invest our time and resources in
+          spiritual growth, mission, and justice, not merely in self-indulgence.
+        </p>
+        <p>
+          We comfort one another with the hope that death is not the end, that God will right all wrongs,
+          and that the glory to come will eclipse present pain.
+        </p>
+        <p>
+          Paul’s mindset can be summed up as: “Don’t lay up treasure on earth, but in heaven.”
+          In practice, that means seeking first the kingdom of God and His righteousness, trusting that
+          all else will be added as we need it.
+        </p>
+
+        <div class="back-to-top">
+          <a href="#top">Back to top ↑</a>
+        </div>
+      </section>
+
+      <!-- Passage Checklist -->
+      <section id="checklist">
+        <h2>
+          Applying Any Passage from Paul
+          <small>Field checklist</small>
+        </h2>
+        <p>
+          Use this as a quick diagnostic whenever you’re trying to decide how a particular teaching from
+          Paul lands today.
+        </p>
+
+        <div class="checklist">
+          <div class="check-item">
+            <div class="check-icon">1</div>
+            <div>
+              <strong>Locate the passage in the flow of thought.</strong>
+              <br />
+              Read the whole chapter (or letter) around it. What problem is Paul addressing?
+              What argument is he making?
+            </div>
+          </div>
+          <div class="check-item">
+            <div class="check-icon">2</div>
+            <div>
+              <strong>Identify the timeless principle.</strong>
+              <br />
+              What underlying truth about God, the gospel, or human relationships is being taught?
+              Separate that from the cultural “clothing” it’s wearing.
+            </div>
+          </div>
+          <div class="check-item">
+            <div class="check-icon">3</div>
+            <div>
+              <strong>Check coherence with Jesus and the rest of Scripture.</strong>
+              <br />
+              Does your interpretation fit with Jesus’ teaching and the broader biblical witness?
+              Scripture won’t genuinely contradict itself.
+            </div>
+          </div>
+          <div class="check-item">
+            <div class="check-icon">4</div>
+            <div>
+              <strong>Account for genre and occasion.</strong>
+              <br />
+              Is this a general instruction, a situational fix, or a proverb-like wisdom line?
+              Are there local factors (false teachers, persecution, cultural practice) driving the
+              specific wording?
+            </div>
+          </div>
+          <div class="check-item">
+            <div class="check-icon">5</div>
+            <div>
+              <strong>Discern form vs. principle.</strong>
+              <br />
+              Is the specific practice (for example, head covering) the enduring command, or is it one
+              way of expressing an enduring principle (for example, honoring God and avoiding scandal)?
+            </div>
+          </div>
+          <div class="check-item">
+            <div class="check-icon">6</div>
+            <div>
+              <strong>Test the fruit.</strong>
+              <br />
+              If lived out as you’re applying it, would this bear the fruit of the Spirit and reflect
+              the character of Christ? Or would it tend toward fear, domination, or pride?
+            </div>
+          </div>
+        </div>
+
+        <div class="callout" style="margin-top:0.9rem;">
+          <strong>Remember:</strong>
+          The goal is not to make Paul say what we wish he said, nor to apply him in a way that
+          contradicts the gospel. The goal is to let the Spirit, through Paul, form us into people who
+          look more like Jesus.
+        </div>
+
+        <div class="back-to-top">
+          <a href="#top">Back to top ↑</a>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
